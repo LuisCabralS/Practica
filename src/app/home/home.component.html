@@ -1,0 +1,63 @@
+
+<mat-sidenav-container class="main-container bg-white" (window:resize)="onResize()">
+  <mat-sidenav class="border-0 bg-dark" [mode]="mode" [opened]="opened" #sidenav>
+    <h3 class="text-center text-white mt-3">Courier</h3>
+    <mat-nav-list>
+      <!--Lista en el menu izquierdo-->
+      <a class="text-secondary" mat-list-item routerLink="."><mat-icon class="mr-2">dashboard</mat-icon>Pedidos</a>
+    
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="position-absolute bg-white shadow-sm">
+      <mat-toolbar-row class="justify-content-between justify-content-xl-end">
+        <button mat-icon-button (click)="menuToggle()" *ngIf="menubutton">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" [routerLink]="['/login']">Logout</button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-5">
+            
+              <h3 >Paquetes tabla
+
+              </h3>
+
+              <table class="table table-hover table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Price </th>
+                    <th scope="col">Supplier </th>
+                    <th scope="col"> Courier</th>
+                    <th scope="col">Courier Tracking</th>
+                    <th scope="col">Inernal Tracking</th>
+      
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr *ngFor="let DB of datos">
+                  <td>{{DB.description}}</td>
+                  <td>{{DB.weight}}</td>
+                  <td>{{DB.priceToPay}}</td>
+                  <td>{{DB.supplier}}</td>
+                  <td>{{DB.courier}}</td>
+                  <td>{{DB.courierTracking}}</td>
+                  <td>{{DB.internalTracking}}</td>
+               
+                </tr>
+                </tbody>
+              </table>
+
+              
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center h-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-5">
+        <div class="alert alert-danger" role="alert" *ngIf="submitted">
+          Username or password incorrect
+        </div>
+        <mat-card>
+          <h3 class="text-center">Login</h3>
+          <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <mat-form-field class="w-100">
+              
+              <!--NgModel pattern,  los caracteres aceptados-->
+              <input type="text" ngModel pattern="[a-zA-Z0-9]*" matInput placeholder="Username" formControlName="username" id="user">
+              <mat-error *ngIf="data.username.errors?.required">Username required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input type="password" ngModel pattern="[a-zA-Z0-9]*" matInput placeholder="Password" formControlName="password" id="pass">
+              <mat-error *ngIf="data.password.errors?.required">Password required</mat-error>
+            </mat-form-field>
+            <div class="form-group mt-3">
+              <button id="ya" mat-raised-button color="primary">Login</button>
+        
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

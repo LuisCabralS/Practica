@@ -1,0 +1,8 @@
+{
+    "/api/*":{
+        "target": "https://courierdemo.azurewebsites.net",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
